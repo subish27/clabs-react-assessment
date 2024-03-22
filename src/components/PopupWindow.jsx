@@ -1,6 +1,6 @@
-import './SegmentPopup.css';
-// Schema name and guidelines UI
-export default function SegmentPopup () {
+import './PopupWindow.css';
+
+export default function PopupWindow () {
     return (
         <div className="popup-container">
             <p>

@@ -1,8 +1,11 @@
 import backIcon from '../assets/back-icon.png';
-import SegmentPopup from './SegmentPopup';
+import PopupWindow from './PopupWindow';
 import SchemaDropdown from './SchemaDropdown';
+import { useState } from 'react';
+import Alert from './Alert';
 
 export default function DropDownWindow({hidePopup}) {
+    const [showAlert, setShowAlert] = useState(false);
 
     function validateFields  (event)  {
         event.preventDefault();
@@ -13,7 +16,7 @@ export default function DropDownWindow({hidePopup}) {
         if(segmentName.trim() !== '' && schema.length > 2) {
             event.target.submit();            
         } else {
-            alert("Segment Name or Schema is empty!");
+            setShowAlert(true);
         }
     }
 
@@ -31,7 +34,7 @@ export default function DropDownWindow({hidePopup}) {
                 </section>        
                 </header>
                 <section className='popup-container'>
-                    <SegmentPopup />        
+                    <PopupWindow />        
                     <div>
                     <SchemaDropdown />
                     </div>        
@@ -41,6 +44,7 @@ export default function DropDownWindow({hidePopup}) {
                     <button className='btn-cancel' type='button' onClick={hidePopup}>Cancel</button>
                 </section>
             </div>
+            {showAlert && <Alert message="Segment Name/Schema is empty!" onClose={() => setShowAlert(false)} />}
         </form>
     );
 }

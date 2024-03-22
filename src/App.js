@@ -3,13 +3,13 @@ import './App.css';
 import backIcon from './assets/back-icon.png';
 import DropDownWindow from './components/DropDownWindow';
 
-// Main APP function - Root of the component tree
-function App() {
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
-  // Toggle the visibility of the popup window
-  const togglePopupVisibility = () => {
-    setIsPopupVisible(prev => !prev);
+function App() {
+  const [showPop, setshowPop] = useState(false);
+
+  
+  function togglePopupVisibility  ()  {
+    setshowPop(prev => !prev);
   };
 
   return (
@@ -26,8 +26,7 @@ function App() {
           <button className='btn-popup' onClick={togglePopupVisibility}>
             Save segment
           </button>
-          {/* Overlay for the popup */}
-          {isPopupVisible && (
+          {showPop && (
             <div className="popup-overlay">
               <div className="popup-content">
                 <DropDownWindow hidePopup = {togglePopupVisibility}/>

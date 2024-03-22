@@ -3,7 +3,7 @@ import './SchemaDropdown.css';
 import Dropdown from './DropDownValues';
 
 const dropdownValues=["first_name","last_name","gender","age","account_name","city","state"] 
-const userTraits=["first_name","last_name","gender","age","city","state"];
+const userTraits=["first_name","last_name","gender","age","city"];
 
 export default function SchemaDropdown () {
     let dropDownObj = [];
